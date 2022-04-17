@@ -21,6 +21,10 @@
 	<link href="<?= base_url('assets/css/sb-admin-2.min.css');?>" rel="stylesheet">
     
     <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+	
+
+    <!-- Custom styles for this page -->
+    <link href="<?= base_url('assets/vendor/datatables/dataTables.bootstrap4.min.css')?>" rel="stylesheet">
 
 </head>
 
@@ -42,27 +46,48 @@
 
 			<!-- Divider -->
 			<hr class="sidebar-divider my-0">
-
+			
 			<!-- Nav Item - Dashboard -->
 			<li class="nav-item active">
 				<a class="nav-link" href="<?= base_url('/');?>">
 					<i class="fas fa-home"></i>
 					<span>Beranda</span></a>
 			</li>
-
-
+			<?php 
+				 if(!isset($this->session->userdata['username'])):
+			?>
 			<!-- Divider -->
 			<hr class="sidebar-divider">
-
-
 			<!-- Nav Item - Charts -->
 			<li class="nav-item">
 				<a class="nav-link" href="<?= base_url('Home/wisata');?>">
 					<i class="fas fa-bus "></i>
 					<span>Tempat Wisata</span></a>
 			</li>
-
+			<?php 
+				endif;
+			?>
 			<!-- Divider -->
+
+			<hr class="sidebar-divider d-none d-md-block">
+
+			<?php 
+				 if(isset($this->session->userdata['username'])):
+			?>
+			
+			<li class="nav-item">
+				<a class="nav-link" href="<?= base_url('Admin/transaksi');?>">
+					<i class="fas fa-folder "></i>
+					<span>Data Transaksi</span></a>
+			</li>
+			<li class="nav-item">
+				<a class="nav-link" href="<?= base_url('Admin/logout');?>">
+					<i class="fas fa-sign-out-alt "></i>
+					<span>LogOut</span></a>
+			</li>
+			<?php 
+				endif;
+			?>
 			<hr class="sidebar-divider d-none d-md-block">
 
 			<!-- Sidebar Toggler (Sidebar) -->
@@ -74,7 +99,9 @@
 
 		<!-- Content Wrapper -->
 		<div id="content-wrapper" class="d-flex flex-column">
-
+			<?php 
+				 if(!isset($this->session->userdata['username'])):
+			?>
 			<header class="bg-dark py-5" style="
                     background-image: url('https://ecs7.tokopedia.net/blog-tokopedia-com/uploads/2018/11/bromo-tengger-semeru.jpg');
                     height: 50vh;
@@ -87,6 +114,7 @@
 					</div>
 				</div>
 			</header>
+			<?php endif; ?>
 			<!-- Main Content -->
 			<div id="content">
 

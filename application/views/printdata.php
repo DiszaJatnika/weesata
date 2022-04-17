@@ -5,6 +5,13 @@
   <table>
       <tr>
           <td>
+              No Transaksi
+          </td>
+          <td>:</td>
+          <td>INV<?= $trs['pk_transaksi_id']?>DT<?= $trs['created_date'];?></td>
+      </tr>
+      <tr>
+          <td>
               Nama Lengkap
           </td>
           <td>:</td>
@@ -56,7 +63,7 @@
           <td>
               Total Tiket
           </td>
-          <td>:</td>
+          <td>:</td>w
           <td><?= $detailpesan['dewasa'] + $detailpesan['anak']?></td>
       </tr>
       <?php 

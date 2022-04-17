@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Apr 17, 2022 at 09:03 AM
+-- Generation Time: Apr 17, 2022 at 07:01 PM
 -- Server version: 10.4.22-MariaDB
 -- PHP Version: 7.4.27
 
@@ -24,6 +24,25 @@ SET time_zone = "+00:00";
 -- --------------------------------------------------------
 
 --
+-- Table structure for table `login`
+--
+
+CREATE TABLE `login` (
+  `pk_login_id` int(11) NOT NULL,
+  `username` varchar(50) DEFAULT NULL,
+  `password` varchar(50) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `login`
+--
+
+INSERT INTO `login` (`pk_login_id`, `username`, `password`) VALUES
+(1, 'admin', '21232f297a57a5a743894a0e4a801fc3');
+
+-- --------------------------------------------------------
+
+--
 -- Table structure for table `transaksi`
 --
 
@@ -36,20 +55,26 @@ CREATE TABLE `transaksi` (
   `tanggal_kunjungan` varchar(50) DEFAULT NULL,
   `dewasa` varchar(50) DEFAULT NULL,
   `anak` varchar(50) DEFAULT NULL,
-  `created_date` date DEFAULT NULL
+  `qrcode` varchar(25) DEFAULT NULL,
+  `created_date` date DEFAULT NULL,
+  `status` enum('Y','N') DEFAULT 'N'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Dumping data for table `transaksi`
 --
 
-INSERT INTO `transaksi` (`pk_transaksi_id`, `nama_lengkap`, `no_identitas`, `no_hp`, `tempat_wisata`, `tanggal_kunjungan`, `dewasa`, `anak`, `created_date`) VALUES
-(2, 'amsa', '5665', '23232', 1, '2022-04-17', '2', '1', '2022-04-17'),
-(3, 'u', '989', '989', 1, '2022-04-17', '1', '1', '2022-04-17'),
-(4, 'aslkdal', '21212', '08995', 2, '2022-04-17', '1', '1', '2022-04-17'),
-(5, '1212', '2121', '1212', 6, '2022-04-17', '1', '1', '2022-04-17'),
-(6, '121212', '121', '21212', 5, '2022-04-17', '1', '1', '2022-04-17'),
-(7, 'Dini', '3275656565', '08555555', 1, '2022-04-17', '2', '1', '2022-04-17');
+INSERT INTO `transaksi` (`pk_transaksi_id`, `nama_lengkap`, `no_identitas`, `no_hp`, `tempat_wisata`, `tanggal_kunjungan`, `dewasa`, `anak`, `qrcode`, `created_date`, `status`) VALUES
+(2, 'Adam', '5665', '23232', 1, '2022-04-17', '2', '1', NULL, '2022-04-17', 'N'),
+(3, 'Andri', '989', '989', 1, '2022-04-17', '1', '1', NULL, '2022-04-17', 'N'),
+(7, 'Dini', '3275656565', '08555555', 1, '2022-04-17', '2', '1', NULL, '2022-04-17', 'N'),
+(8, 'asdad', '1212', '085555', 1, '2022-04-17', '1', '2', NULL, '2022-04-17', 'N'),
+(9, 'Dini', '121231321231', '089614729915', 2, '2022-04-17', '1', '2', NULL, '2022-04-17', 'N'),
+(12, 'titisan', '32132132', '089898', 1, '2022-04-17', '1', '2', '942847204.png', '2022-04-17', 'N'),
+(13, 'titisan', '32132132', '089898', 1, '2022-04-17', '1', '2', '941896892.png', '2022-04-17', 'N'),
+(14, 'test', '32323', '12', 2, '2022-04-17', '2', '3', '470081814.png', '2022-04-17', 'N'),
+(15, 'titisan', '2323565', '08999', 2, '2022-04-17', '1', '2', '432131819.png', '2022-04-17', 'N'),
+(18, '2311', '121321321', '123132123', 1, '2022-04-17', '2', '1', '651520538.png', '2022-04-17', 'N');
 
 -- --------------------------------------------------------
 
@@ -87,6 +112,12 @@ INSERT INTO `wisata` (`wisata_id`, `nama_tempat`, `lokasi`, `deskripsi`, `foto`,
 --
 
 --
+-- Indexes for table `login`
+--
+ALTER TABLE `login`
+  ADD PRIMARY KEY (`pk_login_id`);
+
+--
 -- Indexes for table `transaksi`
 --
 ALTER TABLE `transaksi`
@@ -103,10 +134,16 @@ ALTER TABLE `wisata`
 --
 
 --
+-- AUTO_INCREMENT for table `login`
+--
+ALTER TABLE `login`
+  MODIFY `pk_login_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+
+--
 -- AUTO_INCREMENT for table `transaksi`
 --
 ALTER TABLE `transaksi`
-  MODIFY `pk_transaksi_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+  MODIFY `pk_transaksi_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=20;
 
 --
 -- AUTO_INCREMENT for table `wisata`

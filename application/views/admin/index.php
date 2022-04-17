@@ -54,6 +54,7 @@
                                         </button>
                                         <hr>
                                     </form>
+                                    <a href="<?= base_url('/')?>"> Halaman Weesata</a>
                                 </div>
                             </div>
                         </div>

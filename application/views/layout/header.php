@@ -64,6 +64,12 @@
 					<i class="fas fa-bus "></i>
 					<span>Tempat Wisata</span></a>
 			</li>
+			
+			<li class="nav-item">
+				<a class="nav-link" href="<?= base_url('Admin');?>">
+					<i class="fas fa-sign-out-alt "></i>
+					<span>Login</span></a>
+			</li>
 			<?php 
 				endif;
 			?>
@@ -88,6 +94,7 @@
 			<?php 
 				endif;
 			?>
+			
 			<hr class="sidebar-divider d-none d-md-block">
 
 			<!-- Sidebar Toggler (Sidebar) -->

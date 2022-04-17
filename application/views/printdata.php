@@ -8,7 +8,7 @@
               No Transaksi
           </td>
           <td>:</td>
-          <td>INV<?= $trs['pk_transaksi_id']?>DT<?= $trs['created_date'];?></td>
+          <td>INV<?= $detailpesan['pk_transaksi_id']?>DT<?= $detailpesan['created_date'];?></td>
       </tr>
       <tr>
           <td>

@@ -47,15 +47,15 @@
 			<!-- Divider -->
 			<hr class="sidebar-divider my-0">
 			
+			<?php 
+				 if(!isset($this->session->userdata['username'])):
+			?>
 			<!-- Nav Item - Dashboard -->
 			<li class="nav-item active">
 				<a class="nav-link" href="<?= base_url('/');?>">
 					<i class="fas fa-home"></i>
 					<span>Beranda</span></a>
 			</li>
-			<?php 
-				 if(!isset($this->session->userdata['username'])):
-			?>
 			<!-- Divider -->
 			<hr class="sidebar-divider">
 			<!-- Nav Item - Charts -->

@@ -29,4 +29,10 @@ class Home extends CI_Controller {
         $this->load->view('wisata', $data);
         $this->load->view('layout/footer');
     }
+
+    public function save_transaksi()
+    {
+       $namalengkap =  $this->input->post('nama_lengkap');
+       $wisataid    =  $this->input->post('wisataid');
+    }
 }

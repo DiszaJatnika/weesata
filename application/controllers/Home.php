@@ -33,6 +33,37 @@ class Home extends CI_Controller {
     public function save_transaksi()
     {
        $namalengkap =  $this->input->post('nama_lengkap');
-       $wisataid    =  $this->input->post('wisataid');
+       $noktp       =  $this->input->post('no_ktp');
+       $nohp        =  $this->input->post('no_hp');
+       $tanggal     =  $this->input->post('tanggal_kunjungan');
+       $dewasa      =  $this->input->post('pengunjung_dewasa');
+       $anak        =  $this->input->post('pengunjung_anak');
+       $wisata      =  $this->input->post('wisataid');
+       $now         = date("Y-m-d H:i:s");
+
+       $data = [
+           'nama_lengkap'   => $namalengkap,
+           'no_identitas'   => $noktp,
+           'no_hp'          => $nohp,
+           'tempat_wisata'  => $wisata,
+           'tanggal_kunjungan' => $tanggal,
+           'dewasa' => $dewasa,
+           'anak'   => $anak,
+           'created_date'   => $now
+       ];
+
+       
+       $id = $this->Home_model->AddTransaksi($data);
+       redirect('Home/print_data/'.$id);
+    }
+
+    public function print_data($id)
+    {
+        $wisata = $this->Home_model->getTransaksi($id)->result_array()[0];
+        $data = [
+            'detailpesan' => $wisata
+        ];
+
+        $this->load->view('printdata',$data);
     }
 }

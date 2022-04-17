@@ -78,6 +78,9 @@
 			<header class="bg-dark py-5" style="
                     background-image: url('https://ecs7.tokopedia.net/blog-tokopedia-com/uploads/2018/11/bromo-tengger-semeru.jpg');
                     height: 50vh;
+					background-repeat: no-repeat;
+					background-size: cover;
+					
                 ">
 				<div class="container px-4 px-lg-5 my-5">
 					<div class="text-center text-dark text-border">
